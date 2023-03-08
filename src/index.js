@@ -10,12 +10,9 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import store from './store/store'
 import {WAX_APP_NAME, WAX_CHAIN_ID, WAX_NODE} from './utils/constant'
+import {themeOptions} from './utils/theme'
 
-const darkTheme = createTheme({
-    palette: {
-        mode: 'dark',
-    },
-})
+const theme = createTheme(themeOptions)
 
 const waxChain = {
     chainId: WAX_CHAIN_ID,
@@ -32,7 +29,7 @@ root.render(
         <BrowserRouter>
             <UALProvider appName={WAX_APP_NAME} chains={[waxChain]} authenticators={[wax, anchor]}>
                 <Suspense fallback={<div>Loading...</div>}>
-                    <ThemeProvider theme={darkTheme}>
+                    <ThemeProvider theme={theme}>
                         <CssBaseline/>
                         <App/>
                     </ThemeProvider>
